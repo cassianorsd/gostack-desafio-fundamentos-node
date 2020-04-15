@@ -1,5 +1,5 @@
 import Transaction from '../models/Transaction';
-import CreateTransactionService from '../services/CreateTransactionService';
+// import CreateTransactionService from '../services/CreateTransactionService';
 
 interface Balance {
   income: number;
@@ -38,7 +38,6 @@ class TransactionsRepository {
       {
         income: 0,
         outcome: 0,
-        total: 0,
       },
     );
     return {
