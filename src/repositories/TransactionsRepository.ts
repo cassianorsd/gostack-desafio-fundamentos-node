@@ -13,6 +13,11 @@ interface CreateTransactionDTO {
   type: 'income' | 'outcome';
 }
 
+interface TransactionsAbstractDTO {
+  transactions: Transaction[];
+  balance: Balance;
+}
+
 class TransactionsRepository {
   private transactions: Transaction[];
 
@@ -23,6 +28,14 @@ class TransactionsRepository {
   public all(): Transaction[] {
     const { transactions } = this;
     return transactions;
+  }
+
+  public getAbstract(): TransactionsAbstractDTO {
+    const abstract = {
+      transactions: this.all(),
+      balance: this.getBalance(),
+    };
+    return abstract;
   }
 
   public getBalance(): Balance {
